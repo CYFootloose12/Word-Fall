@@ -1,0 +1,87 @@
+Connor Young + ccyoung + section I 
+Design Document
+
+I created Word Fall, my term project, because most typing games on the internet
+did have great user interface, and did not allow for any intellectual
+stimulation for the user. For example, many of the typing games that I have
+seen only had random letters falling or simply had words fall and you had
+to type in the corresponding letters and words, respectively, to score points.
+However, this did not allow for the provoke the creativity and language
+skills of the user, only the reaction time of the user.What my game does
+is allow the user to creatively, while at the same time using spatial awareness
+and problem-solving (seeing letters fall down on the screen and figuring out
+which sequence of letter combinations, words, would allow the user to score
+the most points). Having the random letters fall and the user creating the
+words on his own was something I thought that would create an interesting
+word game. To solve this problem, I created Word Fall that used the various
+mentioned functions to help create this desired game.
+
+
+Loading the Dictionary:
+    -I solely used the open('allWords.txt')).readlines(). What this does is it
+    reads and creates a list of words. For the particular file that I
+    have, I am able to access thousands upon thousands of words, thus making 
+    my gameplay much more accurate than before. To make the dictionary (as in
+    a set), all I simply need to do is set the list of words to the dictionary.
+    That way I will be able to check a created word with this true dictionary
+    (checking in constant time).
+
+Checking if the Word the User Enters is valid, and then if it is, scoring the
+word and removing the letters from the screen:
+    -lettersOnScreen: checks if all the letters of the word that you just typed
+    in are indeed on the screen.
+    -isWord: checks the word with the dictionary.
+    -addToScore: takes all the letters of the valid word and adds up all the
+    scores of the letters using the scrabble letter scorer.
+    -deleteWords: after realizing that the word that you have submitted is
+    valid.
+
+Creating the New Letters of Words of the Dictionary:
+    -newFallingLetter: this is a function that combines the chooseWord and
+    chooseFallingLetter to create the falling letters.
+    -chooseWord: chooses a random word from the list of the dictionary to use
+    for its letters.
+    -splitWord: splits the chosen word from the dictionary into its letters.
+    -chooseFallingLetter: takes one of the letters of the now-split word
+    and that letter is put into a list in which keeps track of the falling
+    letters.
+
+Placement of the New Letters:
+    -createFallingPlace: creates the place for the circle to fall randomly
+    while at the same time making sure that none of the circles overlap each
+    other.
+
+Making the circles fall:
+    -circleFall: for every timerFired, the circles fall downwards at a rate of
+    two pixels per timerFired.
+
+Accessing and Creating the High Score List:
+    -readFile: reads the high score list from the file highScoreList.txt
+    -writeFile: rewrites the high score list back into highScoreList.txt
+    -getHighScores: function that simply is called after the game is over
+    and gets the contents of the highScoreList.txt file.
+    -addScoresToHighScoreList: adds the scores the current player to the 
+    high score list.
+    -getScores: retrieves solely the scores from the contents (the list of
+    names and scores from the highScoreList.txt file) 
+    -findIndex: matches up the corresponding scores with their names so that
+    they may printed in an orderly fashion for the drawHighScoreList function.
+    
+
+Drawing functions:
+    -drawScreen: this function draws the screen that draws the gameplay of Word
+    Fall.
+    -drawPauseScreen: this function draws the screen that draws the paused
+    screen of the game.
+    -drawInstructions: this function draws the instruction page for the user.
+    -drawGameOver: this function draws the game over page.
+    -drawHighScoreList: this function draws the high score list once the game
+    is over for one or both players who are playing.
+    
+    
+For my term project, Word Fall, the user interface was an important part of the 
+game. For my the homepage, I give the user the option to play one or two player
+mode. Also, the instructions of my game is very in-depth, describing the rules 
+and gameplay of Word Fall. Also, pause and quit features were implemented into
+the game. At the end of every game, a high score list appears on the screen,
+thus making the user experience even better.    
